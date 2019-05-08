@@ -17,11 +17,11 @@ LIBEXEC_DIR ?= $(prefix)/libexec
 BOOTRR_DIR = $(LIBEXEC_DIR)/bootrr
 
 define add-scripts
-$(DESTDIR)$1/$2: $2
+$(DESTDIR)$(prefix)/$1/$2: $1/$2
 	@echo "INSTALL $$<"
 	@install -D -m 755 $$< $$@
 
-all-install += $(DESTDIR)$1/$2
+all-install += $(DESTDIR)$(prefix)/$1/$2
 endef
 
 $(foreach v,${BOARDS},$(eval $(call add-scripts,$(BOOTRR_DIR),$v)))
