@@ -5,7 +5,7 @@ all:
 all-install :=
 
 DESTDIR ?= dest
-CPIONAME ?= bootrr
+CPIONAME ?= bootrr 
 
 HELPERS := $(wildcard helpers/*)
 
