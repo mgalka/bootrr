@@ -24,9 +24,18 @@ assert_driver_present cros-ec-rtc-driver-present cros-ec-rtc
 assert_device_present cros-ec-rtc-probed cros-ec-rtc cros-ec-rtc.*
 
 assert_driver_present cros-ec-sensors-driver-present cros-ec-sensors
-assert_device_present cros-ec-sensors-accel0-probed cros-ec-sensors cros-ec-accel.0
-assert_device_present cros-ec-sensors-accel1-probed cros-ec-sensors cros-ec-accel.1
-assert_device_present cros-ec-sensors-gyro0-probed cros-ec-sensors cros-ec-gyro.0
+if kernel_greater_than "5.4"; then
+    assert_device_present cros-ec-sensors-accel0-probed cros-ec-sensors cros-ec-accel.11.*
+    assert_device_present cros-ec-sensors-accel1-probed cros-ec-sensors cros-ec-accel.13.*
+    assert_device_present cros-ec-sensors-gyro0-probed cros-ec-sensors cros-ec-gyro.12.*
+
+    assert_driver_present cros-ec-sensorhub-driver-present cros-ec-sensorhub
+    assert_device_present cros-ec-sensorhub-probed cros-ec-sensorhub cros-ec-sensorhub.1.*
+else
+    assert_device_present cros-ec-sensors-accel0-probed cros-ec-sensors cros-ec-accel.0
+    assert_device_present cros-ec-sensors-accel1-probed cros-ec-sensors cros-ec-accel.1
+    assert_device_present cros-ec-sensors-gyro0-probed cros-ec-sensors cros-ec-gyro.0
+fi
 
 assert_driver_present cros-ec-sysfs-driver-present cros-ec-sysfs
 assert_device_present cros-ec-sysfs-probed cros-ec-sysfs cros-ec-sysfs.*
