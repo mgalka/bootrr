@@ -41,7 +41,7 @@ assert_driver_present cros-ec-sysfs-driver-present cros-ec-sysfs
 assert_device_present cros-ec-sysfs-probed cros-ec-sysfs cros-ec-sysfs.*
 assert_sysfs_attr_present cros-ec-sysfs-attr-flashinfo /sys/class/chromeos/cros_ec/flashinfo
 assert_sysfs_attr_present cros-ec-sysfs-attr-kb_wake_angle /sys/class/chromeos/cros_ec/kb_wake_angle
-assert_sysfs_attr_present cros-ec-sysfs-attr-veresion /sys/class/chromeos/cros_ec/version
+assert_sysfs_attr_present cros-ec-sysfs-attr-version /sys/class/chromeos/cros_ec/version
 
 assert_driver_present hdmi-audio-codec-driver-present hdmi-audio-codec
 assert_device_present hdmi-audio-codec-probed hdmi-audio-codec hdmi-audio-codec.*
