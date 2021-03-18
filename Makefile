@@ -5,6 +5,7 @@ all:
 all-install :=
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 DESTDIR ?= dest
 CPIONAME ?= bootrr 
 
@@ -47,14 +48,17 @@ BOARDS := arrow,apq8096-db820c \
 	  sony,xperia-castor
 >>>>>>> Install the helpers to check the kernel revision
 
+=======
+>>>>>>> Makefile: install all boards and helpers scripts
 define add-scripts
-$(DESTDIR)$(prefix)/$1/$2: $1/$2
+$(DESTDIR)$(prefix)/$1: $1
 	@echo "INSTALL $$<"
 	@install -D -m 755 $$< $$@
 
-all-install += $(DESTDIR)$(prefix)/$1/$2
+all-install += $(DESTDIR)$(prefix)/$1
 endef
 
+<<<<<<< HEAD
 $(foreach v,${BOARDS},$(eval $(call add-scripts,$(BOOTRR_DIR),$v)))
 $(foreach v,${HELPERS},$(eval $(call add-scripts,$(BOOTRR_DIR),$v)))
 $(foreach v,${BINS},$(eval $(call add-scripts,$(prefix),$v)))
@@ -62,6 +66,10 @@ $(foreach v,${BINS},$(eval $(call add-scripts,$(prefix),$v)))
 bin/bootrr: bin/bootrr.in Makefile
 	@sed -e 's!@BOOTRR@!$(BOOTRR_DIR)!g' $< > $@.tmp
 	@mv $@.tmp $@
+=======
+$(foreach v,$(wildcard boards/*),$(eval $(call add-scripts,$v)))
+$(foreach v,$(wildcard helpers/*),$(eval $(call add-scripts,$v)))
+>>>>>>> Makefile: install all boards and helpers scripts
 
 install: $(all-install)
 
