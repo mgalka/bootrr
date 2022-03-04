@@ -102,3 +102,6 @@ assert_device_present at24-eeprom1-probed at24 2-0050
 
 assert_driver_present rtc-rv8803-driver-present rtc-rv8803
 assert_device_present rtc-rv8803-rtc-probed rtc-rv8803 0-0032
+
+assert_driver_present layerscape-sfp-driver-present layerscape_sfp
+assert_device_present layerscape-sfp-probed layerscape_sfp 1e80000.*
