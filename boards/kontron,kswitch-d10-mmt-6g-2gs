@@ -1,0 +1,9 @@
+#!/bin/sh
+
+assert_driver_present at91_i2c-driver-present at91_i2c
+assert_device_present at91_i2c-i2c0-probed at91_i2c e0044600.*
+assert_device_present at91_i2c-i2c1-probed at91_i2c e0070600.*
+
+assert_driver_present sfp-driver-present sfp
+assert_device_present sfp-sfp0-probed sfp sfp0
+assert_device_present sfp-sfp1-probed sfp sfp1
