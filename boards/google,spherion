@@ -214,8 +214,8 @@ assert_driver_present sbs-battery-driver-present sbs-battery
 assert_device_present sbs-battery-probed sbs-battery 10-000b
 
 # WiFi
-assert_driver_present mtk-pcie-driver-present mtk-pcie
-assert_device_present mtk-pcie-probed mtk-pcie 11230000.*
+assert_driver_present mtk-pcie-gen3-driver-present mtk-pcie-gen3
+assert_device_present mtk-pcie-gen3-probed mtk-pcie-gen3 11230000.*
 
 assert_driver_present mt7921e-driver-present mt7921e
 assert_device_present mt7921e-probed mt7921e 0000:01:00.0
